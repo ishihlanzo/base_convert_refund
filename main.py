@@ -1,12 +1,16 @@
 # made by ø
 import tkinter
 
+# creation of the windows
 root = tkinter.Tk()
 root.title("base converter")
 root.geometry("300x400")
 
+# program for converting
+
 
 def convert():
+    # creation of all variable for later
     nb_ini = [i for i in nb_init.get()]
     nb_ini_inter = []
     base_ini = int(base_init.get())
@@ -26,12 +30,15 @@ def convert():
     for i in range(len(nb_ini)):
         if nb_ini[i].lower() in alphabet:
             nb_ini[i] = nb_ini[i].lower()
+    # convert the entered number to base 10
 
     for i in range(len(nb_ini)):
         if nb_ini[i] in number:
             base_10 += int(nb_ini[i]) * (base_ini ** i)
         elif nb_ini[i] in alphabet:
             base_10 += (ord(nb_ini[i])-87) * (base_ini ** i)
+
+    # make some magick with that
 
     while base_10 > 0:
         nb_final_l.append(base_10 % base_end)
@@ -44,14 +51,18 @@ def convert():
 
     for i in range(len(nb_final_l)):
         nb_end += str(nb_final_l[i])
+
+    # change the '10' in 'A' (and every other letter)
     if base_end > 10:
         for i in range(10, 36):
             nb_end = nb_end.replace(str(i), str(chr(i+55)))
 
+    # show the result on the windows in the entry 'result'
     result.delete(0, tkinter.END)
     result.insert(0, nb_end)
 
 
+# creation of objet in the windows
 title = tkinter.Label(root, text='BASE CONVERTER', font=25)
 ini = tkinter.Label(root, text='insert the initial number')
 ibi = tkinter.Label(root, text='insert the initial base')
@@ -61,6 +72,8 @@ nb_init = tkinter.Entry(root)
 base_init = tkinter.Entry(root)
 base_final = tkinter.Entry(root)
 result = tkinter.Entry(root)
+
+# display objects
 pad = 10
 title.pack()
 ini.pack(pady=pad)
@@ -72,4 +85,5 @@ base_final.pack()
 r.pack(pady=pad, ipadx=35)
 result.pack()
 
+# show the windows
 root.mainloop()
