@@ -1,7 +1,5 @@
 # made by ø
 import tkinter
-import os
-
 
 # creation of the windows
 root = tkinter.Tk()
