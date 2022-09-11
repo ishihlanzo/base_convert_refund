@@ -1,10 +1,13 @@
 # made by ø
 import tkinter
+import os
+
 
 # creation of the windows
 root = tkinter.Tk()
 root.title("base converter")
-root.geometry("300x400")
+root.geometry("250x350+15+274")
+root.resizable(width=False, height=False)
 
 # program for converting
 
@@ -63,27 +66,27 @@ def convert():
 
 
 # creation of objet in the windows
-title = tkinter.Label(root, text='BASE CONVERTER', font=25)
+title = tkinter.Label(root, text='\nBASE CONVERTER', font=25)
 ini = tkinter.Label(root, text='insert the initial number')
-ibi = tkinter.Label(root, text='insert the initial base')
-ibf = tkinter.Label(root, text='insert the final base')
-r = tkinter.Button(root, text='Result', command=convert)
+ibi = tkinter.Label(root, text='insert the initial base\n[min : 2 max : 35]')
+ibf = tkinter.Label(root, text='insert the final base\n[min : 2 max : 35]')
+r = tkinter.Button(root, text='Result\n↓ ↓ ↓', command=convert)
 nb_init = tkinter.Entry(root)
 base_init = tkinter.Entry(root)
 base_final = tkinter.Entry(root)
 result = tkinter.Entry(root)
 
 # display objects
-pad = 10
+pad = 5
 title.pack()
 ini.pack(pady=pad)
-nb_init.pack()
+nb_init.pack(pady=2)
 ibi.pack(pady=pad)
-base_init.pack()
+base_init.pack(pady=2)
 ibf.pack(pady=pad)
-base_final.pack()
+base_final.pack(pady=2)
 r.pack(pady=pad, ipadx=35)
-result.pack()
+result.pack(ipadx=50, pady=10)
 
 # show the windows
 root.mainloop()
